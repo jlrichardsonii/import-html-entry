@@ -41,18 +41,18 @@ function isValidJavaScriptType(type) {
 
 export var genLinkReplaceSymbol = function genLinkReplaceSymbol(linkHref) {
   var preloadOrPrefetch = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-  return "<!-- ".concat(preloadOrPrefetch ? 'prefetch/preload' : '', " link ").concat(linkHref, " replaced by import-html-entry -->");
+  return "<!-- ".concat(preloadOrPrefetch ? 'prefetch/preload' : '', " link ").concat(linkHref, " replaced by import-html-entry [jimmy] -->");
 };
 export var genScriptReplaceSymbol = function genScriptReplaceSymbol(scriptSrc) {
   var async = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-  return "<!-- ".concat(async ? 'async' : '', " script ").concat(scriptSrc, " replaced by import-html-entry -->");
+  return "<!-- ".concat(async ? 'async' : '', " script ").concat(scriptSrc, " replaced by import-html-entry [jimmy] -->");
 };
-export var inlineScriptReplaceSymbol = "<!-- inline scripts replaced by import-html-entry -->";
+export var inlineScriptReplaceSymbol = "<!-- inline scripts replaced by import-html-entry [jimmy] -->";
 export var genIgnoreAssetReplaceSymbol = function genIgnoreAssetReplaceSymbol(url) {
-  return "<!-- ignore asset ".concat(url || 'file', " replaced by import-html-entry -->");
+  return "<!-- ignore asset ".concat(url || 'file', " replaced by import-html-entry [jimmy] -->");
 };
 export var genModuleScriptReplaceSymbol = function genModuleScriptReplaceSymbol(scriptSrc, moduleSupport) {
-  return "<!-- ".concat(moduleSupport ? 'nomodule' : 'module', " script ").concat(scriptSrc, " ignored by import-html-entry -->");
+  return "<!-- ".concat(moduleSupport ? 'nomodule' : 'module', " script ").concat(scriptSrc, " ignored by import-html-entry [jimmy] -->");
 };
 /**
  * parse the script link from the template
@@ -198,7 +198,7 @@ export default function processTpl(tpl, baseURI) {
   return {
     template: template,
     scripts: scripts,
-    styles: styles,
+    styles: [],
     // set the last script as entry if have not set
     entry: entry || scripts[scripts.length - 1]
   };
