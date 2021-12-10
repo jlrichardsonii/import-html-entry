@@ -188,6 +188,10 @@ export default function processTpl(tpl, baseURI, postProcessTemplate) {
 		return !!script;
 	});
 
+	// [jimmy]
+	
+	styles = [];
+
 	let tplResult = {
 		template,
 		scripts,
